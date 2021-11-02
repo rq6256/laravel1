@@ -27,7 +27,7 @@ class Task extends Model
 
         return self::STATUS[$status]['label'];
     }
-    
+
     /**
      * 状態を表すHTMLクラス
      * @return string
@@ -49,5 +49,9 @@ class Task extends Model
     {
         return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])
             ->format('Y/m/d');
+    }
+
+    public function folder(){
+        return $this->belongsTo('App\Folder');
     }
 }
